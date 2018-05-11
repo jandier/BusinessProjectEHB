@@ -19,11 +19,7 @@
     "test:watch": "npm test -- --watch",
     "test:cov": "npm test -- --coverage",
     "pretty":
-      "prettier-eslint --single-quote --trailing-comma all --write '{src}/**/*.js'",
-    "precommit": "lint-staged"
-  },
-  "lint-staged": {
-    "*.js": ["eslint", "jest --findRelatedTests"]
+      "prettier-eslint --single-quote --trailing-comma all --write '{src}/**/*.js'"
   },
   "author": "Steven Van Eenoo",
   "devDependencies": {
@@ -53,7 +49,6 @@
     "extract-text-webpack-plugin": "^3.0.1",
     "file-loader": "^1.1.4",
     "html-webpack-plugin": "^2.30.1",
-    "husky": "^0.14.3",
     "jest": "^21.2.1",
     "json-loader": "^0.5.7",
     "lint-staged": "^4.2.3",
