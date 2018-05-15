@@ -19,9 +19,10 @@ class Products extends Component {
   componentDidMount() {
     // const data = getData()
     const body =
-      '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:blz="http://thomas-bayer.com/blz/"><soap:Header/><soap:Body><blz:getBank><blz:blz>66069104</blz:blz></blz:getBank></soap:Body></soap:Envelope>';
-
-    fetch('http://www.thomas-bayer.com/axis2/services/BLZService', {
+     // '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:blz="http://thomas-bayer.com/blz/"><soap:Header/><soap:Body><blz:getBank><blz:blz>66069104</blz:blz></blz:getBank></soap:Body></soap:Envelope>';
+      '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:glob="http://sap.com/xi/SAPGlobal20/Global"><soap:Header/><soap:Body><glob:ProductCategoryHierarchy_SelectionByElements_Sync><ProductCategoryHierarchySelectionByElements><SelectionByDescription><!--Optional:--><InclusionExclusionCode>I</InclusionExclusionCode><IntervalBoundaryTypeCode>1</IntervalBoundaryTypeCode><!--Optional:--><LowerBoundaryText>dig*</LowerBoundaryText></SelectionByDescription></ProductCategoryHierarchySelectionByElements><ProcessingConditions><QueryHitsMaximumNumberValue>10</QueryHitsMaximumNumberValue><QueryHitsUnlimitedIndicator>false</QueryHitsUnlimitedIndicator><LastReturnedObjectID/></ProcessingConditions><RequestedElements productCategoryHierarchyTransmissionRequestCode="1"><ProductCategoryHierarchy descriptionTransmissionRequestCode="1" productCategoryTransmissionRequestCode="1"/></RequestedElements></glob:ProductCategoryHierarchy_SelectionByElements_Sync></soap:Body> </soap:Envelope>';
+    //fetch('http://www.thomas-bayer.com/axis2/services/BLZService', {
+      fetch('https://my341784.sapbydesign.com/sap/bc/srt/scs/sap/queryproductcategories?sap-vhost=my341784.sapbydesign.com', {
       body, // must match 'Content-Type' header
       headers: {
         'content-type': 'text/plain',
@@ -38,9 +39,11 @@ class Products extends Component {
 
   getProducts(value) {
     const body =
-      '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:blz="http://thomas-bayer.com/blz/"><soap:Header/><soap:Body><blz:getBank><blz:blz>66069104</blz:blz></blz:getBank></soap:Body></soap:Envelope>';
-
-    fetch('http://www.thomas-bayer.com/axis2/services/BLZService', {
+      //'<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:blz="http://thomas-bayer.com/blz/"><soap:Header/><soap:Body><blz:getBank><blz:blz>66069104</blz:blz></blz:getBank></soap:Body></soap:Envelope>';
+      '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:glob="http://sap.com/xi/SAPGlobal20/Global"><soap:Header/><soap:Body><glob:RegisteredProductQuery><ProcessingConditions><QueryHitsMaximumNumberValue>4</QueryHitsMaximumNumberValue><QueryHitsUnlimitedIndicator>false</QueryHitsUnlimitedIndicator></ProcessingConditions><RegisteredProductSelectByElements><SelectionByProdCategoryID><InclusionExclusionCode>I</InclusionExclusionCode><IntervalBoundaryTypeCode>1</IntervalBoundaryTypeCode><LowerBoundaryIdentifier>0100</LowerBoundaryIdentifier><UpperBoundaryIdentifier></UpperBoundaryIdentifier></SelectionByProdCategoryID></RegisteredProductSelectByElements></glob:RegisteredProductQuery></soap:Body></soap:Envelope>';
+    //fetch('http://www.thomas-bayer.com/axis2/services/BLZService', {
+      fetch('https://my341784.sapbydesign.com/sap/bc/srt/scs/sap/queryregisteredproductin1?sap-vhost=my341784.sapbydesign.com', {
+      
       body, // must match 'Content-Type' header
       headers: {
         'content-type': 'text/plain',
